@@ -267,7 +267,7 @@ body {
 #gridContainer {
   display: grid;
   grid-template-columns: auto auto;
-  gap: 100px;
+  gap: 80px;
   justify-content: center;
 }
 
@@ -280,4 +280,8 @@ body {
   position: relative;
   top: 15px;
   right: 44%;
+}
+
+#voteAverage {
+  font-size: 2rem;
 }
