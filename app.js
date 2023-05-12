@@ -22,9 +22,11 @@ let getMovies = () => {
       console.log(data.results);
       results.innerHTML = `
       <div class="info">
-      <p id="voteAverage">${data.results[0].vote_average}</p>
           <h1 id="movieTitle">${data.results[0].original_title}</h1>
-          <img src="https://image.tmdb.org/t/p/w200${data.results[0].poster_path}">
+          <div id="gridContainer">
+            <img class="gridContent poster" src="https://image.tmdb.org/t/p/w200${data.results[0].poster_path}">
+            <p class="gridContent" id="voteAverage">${data.results[0].vote_average}/10</p>
+          </div>
         <p id="movieOverview">${data.results[0].overview}</p>
         <p id="releaseDate">${data.results[0].release_date}</p>
           </div>
