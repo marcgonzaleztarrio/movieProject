@@ -23,10 +23,8 @@ let getMovies = () => {
       results.innerHTML = `
       <div class="info">
           <h1 id="movieTitle">${data.results[0].original_title}</h1>
-          <div id="gridContainer">
-            <img class="gridContent poster" src="https://image.tmdb.org/t/p/w200${data.results[0].poster_path}">
-            <p class="gridContent" id="voteAverage">${data.results[0].vote_average}/10</p>
-          </div>
+            <img src="https://image.tmdb.org/t/p/w200${data.results[0].poster_path}">
+            <p id="voteAverage">${data.results[0].vote_average}/10</p>
         <p id="movieOverview">${data.results[0].overview}</p>
         <p id="releaseDate">${data.results[0].release_date}</p>
           </div>
