@@ -4,6 +4,13 @@ const results = document.getElementById("results");
 
 const key = "e4b3b0e01c98dde5382f39171487969f";
 
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    getMovies();
+  }
+});
+
 buttonMovie.onclick = () => {
   getMovies();
 };
