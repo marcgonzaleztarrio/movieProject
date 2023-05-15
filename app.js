@@ -26,17 +26,15 @@ let currentPage = 0;
 let getMovies = () => {
   let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${input.value}`;
 
-  if (input.value.length <= 0) {
-    results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`;
-  } else {
-  }
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      console.log(data.results);
-      data.results.length === 0
-        ? (results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`)
-        : (results.innerHTML = `
+  input.value.length <= 0
+    ? (results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`)
+    : fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data.results);
+          data.results.length === 0
+            ? (results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`)
+            : (results.innerHTML = `
       <div class="info">
       <a class="flechaD" id="flechaD">⪼</a>
       <a class="flechaIz" id="flechaIz">⪻</a>
@@ -47,10 +45,10 @@ let getMovies = () => {
         <p id="releaseDate">${data.results[currentPage].release_date}</p>
           </div>
       `);
-      removeArrows(data);
-      arrowsChangeMovie();
-      changeImg(data);
-    });
+          removeArrows(data);
+          arrowsChangeMovie();
+          changeImg(data);
+        });
 };
 
 let removeArrows = (data) => {
