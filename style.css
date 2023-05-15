@@ -198,7 +198,7 @@ body {
 }
 
 #movieTitle {
-  margin-bottom: 10px;
+  margin: 20px 0px 10px 0px;
 }
 
 #movieOverview {
@@ -223,16 +223,16 @@ body {
 }
 
 .flechaIz {
-  position: relative;
-  right: 33%;
-  top: 200px;
+  position: absolute;
+  left: 15%;
+  top: 45%;
   font-size: 1.5rem;
 }
 
 .flechaD {
-  position: relative;
-  left: 33%;
-  top: 200px;
+  position: absolute;
+  right: 15%;
+  top: 45%;
   font-size: 1.5rem;
 }
 
@@ -277,11 +277,11 @@ body {
   }
 
   .flechaIz {
-    right: 54%;
+    left: 5%;
   }
 
   .flechaD {
-    left: 54%;
+    right: 5%;
   }
 }
 
@@ -312,11 +312,12 @@ body {
     top: 15px;
     right: 42%;
   }
+
   .flechaIz {
-    right: 45%;
+    left: 20%;
   }
 
   .flechaD {
-    left: 45%;
+    right: 20%;
   }
 }
