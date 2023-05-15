@@ -224,14 +224,14 @@ body {
 
 .flechaIz {
   position: relative;
-  left: 33%;
+  right: 33%;
   top: 200px;
   font-size: 1.5rem;
 }
 
 .flechaD {
   position: relative;
-  right: 33%;
+  left: 33%;
   top: 200px;
   font-size: 1.5rem;
 }
@@ -273,7 +273,15 @@ body {
   #releaseDate {
     position: relative;
     top: 15px;
-    right: 42%;
+    right: 40%;
+  }
+
+  .flechaIz {
+    right: 54%;
+  }
+
+  .flechaD {
+    left: 54%;
   }
 }
 
@@ -303,5 +311,12 @@ body {
     position: relative;
     top: 15px;
     right: 42%;
+  }
+  .flechaIz {
+    right: 45%;
+  }
+
+  .flechaD {
+    left: 45%;
   }
 }
