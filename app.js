@@ -3,8 +3,6 @@ const buttonMovie = document.getElementById("buttonMovie");
 const results = document.getElementById("results");
 const results2 = document.getElementById("results2");
 
-const key = "e4b3b0e01c98dde5382f39171487969f";
-
 console.log(input.value);
 
 input.addEventListener("keydown", function (event) {
@@ -25,7 +23,6 @@ let currentPage = 0;
 
 let getMovies = () => {
   let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${input.value}`;
-
   input.value.length <= 0
     ? (results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`)
     : fetch(url)
@@ -34,21 +31,25 @@ let getMovies = () => {
           document.title = data.results[currentPage].title;
           console.log(data.results);
           data.results.length === 0
-            ? (results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`)
+            ? (results.innerHTML = `<h3 class="info noData">No movies found</h3>`)
             : (results.innerHTML = `
-      <div class="info">
-      <a class="flechaD" id="flechaD">⪼</a>
-      <a class="flechaIz" id="flechaIz">⪻</a>
-          <h1 id="movieTitle">${data.results[currentPage].title}</h1>
-            <img id="image404" src="https://image.tmdb.org/t/p/w200${data.results[currentPage].poster_path}">
-            <p id="voteAverage">${data.results[currentPage].vote_average}/10</p>
-        <p id="movieOverview">${data.results[currentPage].overview}</p>
-        <p id="releaseDate">${data.results[currentPage].release_date}</p>
-          </div>
-      `);
+        <div class="info">
+          <a title="Next Movie" class="flechaD" id="flechaD">⪼</a>
+          <a title="Previous Movie" class="flechaIz" id="flechaIz">⪻</a>
+            <h1 id="movieTitle">${data.results[currentPage].title}</h1>
+              <img id="image404" src="https://image.tmdb.org/t/p/w200${data.results[currentPage].poster_path}">
+              <p id="voteAverage">${data.results[currentPage].vote_average}/10</p>
+          <p id="movieOverview">${data.results[currentPage].overview}</p>
+          <p id="releaseDate">${data.results[currentPage].release_date}</p>
+            </div>
+        `);
           removeArrows(data);
           arrowsChangeMovie();
           changeImg(data);
+        })
+        .catch((error) => {
+          console.error(error);
+          results.innerHTML = `<h3 class="info noData">No movies found</h3>`;
         });
 };
 
