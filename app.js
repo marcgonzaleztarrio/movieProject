@@ -31,6 +31,7 @@ let getMovies = () => {
     : fetch(url)
         .then((response) => response.json())
         .then((data) => {
+          document.title = data.results[currentPage].title;
           console.log(data.results);
           data.results.length === 0
             ? (results.innerHTML = `<h3 class="info noData">Please enter a movie name</h3>`)
